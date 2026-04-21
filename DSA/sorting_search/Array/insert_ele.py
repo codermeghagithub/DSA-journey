@@ -31,6 +31,16 @@
 #   print(val[i], end=" ")
 
 
+
+# ** 
+# ✅ Understanding This Line
+# for i in range(len(lis)-1, idx, -1):
+# 🔹 Format of range()
+# range(start, stop, step)
+# start → where to begin
+# stop → where to stop (NOT included)
+# step → how to move
+
 def get_integer():
   val=input("Enter a number :")
 
@@ -58,14 +68,19 @@ def traverse(lis):
 
 # Insert
 def insert_ele(lis):
-  print("Enter idx of :")
+  print("Enter idx :")
   idx=get_integer()
-  if  idx>=0 and len(lis)>=idx:
-    print("Enter ele of :")
-    ele=get_integer()
-    for i in range(idx-1,len(lis)):
-      lis.insert(idx,ele)
-      print("Inserted")
+
+  if 0<=idx and idx<=len(lis):
+     print("Enter ele:")
+     ele=get_integer()
+
+     lis.append(0)
+     for i in range(len(lis)-1,idx,-1):
+        lis[i]=lis[i-1]
+
+     lis[idx]=ele   
+     print("Inserted")
   else:
     print("Invalid index")
 
